@@ -1,4 +1,23 @@
-baseURL = 'https://neohung.github.io/'
-languageCode = 'zh-TW'
-title = 'Neoo0 Hugo Site'
-theme = 'PaperMod'
+baseurl = "https://neohung.github.io/"
+languagecode = "zh-TW"
+title = "Black & Light"
+author = "David Hamp-Gonsalves"
+canonifyurls = true
+theme = "black-and-light"
+
+pygmentsstyle       = "bw"
+pygmentscodefences  = true
+
+[params]
+  sitename = "Black & Light"
+  disableWebFonts = false
+
+[[menu.main]]
+    name = "About"
+    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
+[[menu.main]]
+    name = "Projects"
+    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
+[[menu.main]]
+    name = "Resume"
+    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
