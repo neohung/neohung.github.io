@@ -1,18 +1,15 @@
-# 網站網址
 baseurl = "https://neohung.github.io/"
 languagecode = "zh-TW"
-# 網站標題
-title = "我的網站"
-author = "尼歐"
+title = "Neo"
+author = "NeoH"
 canonifyurls = true
-# 使用的主題
 theme = "black-and-light"
 
 pygmentsstyle       = "bw"
 pygmentscodefences  = true
 
 [params]
-  sitename = "尼歐的Blog"
+  sitename = "尼歐的blog"
   disableWebFonts = false
 
 [[menu.main]]
