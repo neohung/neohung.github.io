@@ -1,15 +1,18 @@
+# 網站網址
 baseurl = "https://neohung.github.io/"
 languagecode = "zh-TW"
-title = "Black & Light"
-author = "David Hamp-Gonsalves"
+# 網站標題
+title = "我的網站"
+author = "尼歐"
 canonifyurls = true
+# 使用的主題
 theme = "black-and-light"
 
 pygmentsstyle       = "bw"
 pygmentscodefences  = true
 
 [params]
-  sitename = "Black & Light"
+  sitename = "尼歐的Blog"
   disableWebFonts = false
 
 [[menu.main]]
