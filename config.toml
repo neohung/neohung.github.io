@@ -9,7 +9,7 @@ pygmentsstyle       = "bw"
 pygmentscodefences  = true
 
 [params]
-  sitename = "尼歐blog"
+  sitename = "尼歐的blog"
   disableWebFonts = false
 
 [[menu.main]]
