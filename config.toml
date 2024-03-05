@@ -9,15 +9,15 @@ pygmentsstyle       = "bw"
 pygmentscodefences  = true
 
 [params]
-  sitename = "尼歐的blog"
+  sitename = "尼歐blog"
   disableWebFonts = false
 
 [[menu.main]]
     name = "About"
-    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
+    url  = "https://github.com/neohung"
 [[menu.main]]
     name = "Projects"
-    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
+    url  = "https://github.com/neohunge"
 [[menu.main]]
     name = "Resume"
-    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
+    url  = "https://github.com/neohung"
