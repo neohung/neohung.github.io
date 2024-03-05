@@ -1,0 +1,4 @@
+baseURL = 'https://neohung.github.io/'
+languageCode = 'zh-TW'
+title = 'Neos Hugo Site'
+theme = 'PaperMod'
