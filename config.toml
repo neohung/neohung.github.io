@@ -3,7 +3,7 @@ languagecode = "zh-TW"
 title = "Neo"
 author = "NeoH"
 canonifyurls = true
-theme = "black-and-light"
+theme = "blist"
 
 pygmentsstyle       = "bw"
 pygmentscodefences  = true
