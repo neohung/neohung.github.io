@@ -43,6 +43,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Install Node.js postcss
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm i -g postcss-cli || true"
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
@@ -50,6 +52,7 @@ jobs:
           HUGO_ENV: production
         run: |
           hugo \
+            --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
