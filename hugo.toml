@@ -1,4 +1,4 @@
-baseurl = "https://neoh-pi.vercel.app/"
+baseurl = "https://neohung.github.io/"
 metaDataFormat = "yaml"
 title = "Neo Blog"
 theme = "blist"
@@ -11,7 +11,7 @@ DefaultContentLanguageInSubdir = true
     weight = 1
     languageName = "Chinese"
     [languages.ch.params]
-    introTitle = "嗨! 這裡是Neo"
+    introTitle = "嗨! 這裡是三貓書店"
     introSubtitle = "一個紀錄旅遊生活的發布平台，一的相關技術的探討過程"
     introPhoto = "/cat_profile.jpg"
     logo = "/apple-touch-icon.png"
