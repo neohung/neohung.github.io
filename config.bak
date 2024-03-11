@@ -1,9 +1,9 @@
-baseurl = "https://neohung.github.io/"
+baseurl = "https://neoh.netlify.app"
 languagecode = "zh-TW"
-title = "Neo"
+title = "尼歐網誌"
 author = "NeoH"
 canonifyurls = true
-theme = "blist"
+theme = "black-and-light"
 
 pygmentsstyle       = "bw"
 pygmentscodefences  = true

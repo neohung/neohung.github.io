@@ -1,0 +1,17 @@
+<h5 class="text-sm flex items-center flex-wrap">
+{{ with .Params.tags }}
+  {{ $total := len . }}
+  {{ if gt $total 0 }}
+    標籤：
+    {{ $subtotal := sub $total 1 }}
+    {{ range $i, $tag := sort . }}
+    <a href="{{ "tags/" | absLangURL }}{{ $tag | urlize }}" role="button"> 
+      <span>{{ $tag | lower }}</span> 
+    </a>
+    {{ if lt $i $subtotal }}<span>&nbsp;•&nbsp;</span>{{ end }}
+    {{ end }}    
+  {{ end }}  
+{{ end }}
+</h5>
+
+

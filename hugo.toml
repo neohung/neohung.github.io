@@ -1,94 +1,64 @@
-baseurl = "https://blist.vercel.app"
+baseurl = "https://neoh-pi.vercel.app/"
 metaDataFormat = "yaml"
-title = "Blist Multilingual Theme"
+title = "Neo Blog"
 theme = "blist"
 
-DefaultContentLanguage = "en"
+DefaultContentLanguage = "ch"
 DefaultContentLanguageInSubdir = true
 [languages]
+  [languages.ch]
+    contentDir = "content/ch" #Chinese
+    weight = 1
+    languageName = "Chinese"
+    [languages.ch.params]
+    introTitle = "嗨! 這裡是Neo"
+    introSubtitle = "一個紀錄旅遊生活的發布平台，一的相關技術的探討過程"
+    introPhoto = "/cat_profile.jpg"
+    logo = "/apple-touch-icon.png"
+    [[languages.ch.menu.main]]
+        name = "首頁"
+        url = ""
+        weight = 1
+    [[languages.ch.menu.main]]
+        name = "網誌"
+        url = "blog"
+        weight = 2
+    [[languages.ch.menu.main]]
+        name = "關於我"
+        url = "page/about/"
+        weight = 3
+    [[languages.ch.menu.main]]
+        name = "Tags"
+        url = "tags"
+        weight = 4
+
   [languages.en]
     contentDir = "content/en" #English
     weight = 1
     languageName = "English"
     [languages.en.params]
-      introTitle = "Hey! I'm Katheryn Fox"
-      introSubtitle = "26 y/o junior developer who enjoys social card games, blogging and painting"
-      introPhoto = "/picture.jpg"
-      logo = "/blist-logo.png"
+      introTitle = "Hey! I'm Neo"
+      introSubtitle = "Senior developer who enjoys social card games, blogging and traveling"
+      introPhoto = "/cat_profile.jpg"
+      logo = "/apple-touch-icon.png"
+	[[languages.en.menu.main]]
+        name = "Home"
+        url = ""
+        weight = 1
     [[languages.en.menu.main]]
         name = "Blog"
         url = "blog"
-        weight = 1
+        weight = 2
 
     [[languages.en.menu.main]]
         name = "About"
         url = "page/about/"
-        weight = 2
+        weight = 3
 
     [[languages.en.menu.main]]
         name = "Tags"
         url = "tags"
-        weight = 3
-
-    [[languages.en.menu.main]]
-        name = "Top Post"
-        url = "/en/blog/emoji-support/"
         weight = 4
-
-  [languages.de]
-    contentDir = "content/de" # Deutsch
-    weight = 2
-    languageName = "Deutsch"
-    title = "Blist (mehrsprachig)"
-    [languages.de.params]
-      description = "Modernes Blog-Theme für Ihre Hugo-Site."
-      introTitle = "Hallo, ich bin Katheryn Fox"
-      introSubtitle = "26-jährige Junior-Entwicklerin, die Spaß an sozialen Kartenspielen, Bloggen und Malen hat"
-      introPhoto = "/picture.jpg"
-      logo = "/blist-logo-de.png"
-    [[languages.de.menu.main]]
-        name = "Blog"
-        url = "blog"
-        weight = 1
-
-    [[languages.de.menu.main]]
-        name = "Über mich"
-        url = "page/about/"
-        weight = 2
-
-    [[languages.de.menu.main]]
-        name = "Tags"
-        url = "tags"
-        weight = 3
-        
-  [languages.fr]
-    contentDir = "content/fr" #French
-    weight = 1
-    languageName = "Français"
-    [languages.fr.params]
-      introTitle = "Salut! Je suis Katheryn Fox"
-      introSubtitle = "Développeuse junior de 26 ans qui adore les jeux de société, le blogging et la peinture"
-      introPhoto = "/picture.jpg"
-      logo = "/blist-logo.png"
-    [[languages.fr.menu.main]]
-        name = "Blog"
-        url = "blog"
-        weight = 1
-
-    [[languages.fr.menu.main]]
-        name = "À propos"
-        url = "page/about/"
-        weight = 2
-
-    [[languages.fr.menu.main]]
-        name = "Tags"
-        url = "tags"
-        weight = 3
-        
-  [languages.dy]
-    contentDir = "content/dy" #Example language
-    weight = 3
-    languageName = "Test Language"
 
 [params]
   # Enable the darkmode toggle in header
@@ -112,8 +82,8 @@ DefaultContentLanguageInSubdir = true
   ]
 
   # Custom copyright - optional
-  copyright = "Copyright © 2021 - Katheryn Fox · All rights reserved"
-  favicon = "/favicon.svg"
+  copyright = "Copyright © 2024 - Neo.H.· All rights reserved"
+  favicon = "/favicon-32x32.png"
 
   # Color for the intro details and social links block, not applicable for dark mode
   # Supported values: Any color from TailwindCSS default colors
@@ -144,7 +114,11 @@ DefaultContentLanguageInSubdir = true
 [params.comments]
   # Supports disqus, giscus and utterances
   # Check hugo docs for setting up disqus
-  system = "giscus"
+  system = "disqus"
+
+[services]
+  [services.disqus]
+    shortname = 'neoh'
 
   # Options for giscus, exclude hyphens
   repo = ""
@@ -169,63 +143,64 @@ DefaultContentLanguageInSubdir = true
   description = "I work on everything coding and tweet developer memes"
 
   [[params.homepage.social.icons]]
-    website = "twitter"
-    url = "https://twitter.com/"
-  [[params.homepage.social.icons]]
-    website = "linkedin"
-    url = "https://linkedin.com/in/"
-  [[params.homepage.social.icons]]
-    website = "xing"
-    url = "https://www.xing.com/profile/"
-  [[params.homepage.social.icons]]
-    website = "telegram"
-    url = "https://t.me/"
-  [[params.homepage.social.icons]]
-    website = "github"
-    url = "https://github.com/"
-  [[params.homepage.social.icons]]
-    website = "buymeacoffee"
-    url = "https://www.buymeacoffee.com/"
-  [[params.homepage.social.icons]]
-    website = "medium"
-    url = "https://medium.com/"
-  [[params.homepage.social.icons]]
-    website = "reddit"
-    url = "https://reddit.com/"
-  [[params.homepage.social.icons]]
-    website = "dribbble"
-    url = "https://dribbble.com/"
-  [[params.homepage.social.icons]]
-    website = "stackoverflow"
-    url = "https://stackoverflow.com/"
-  [[params.homepage.social.icons]]
-    website = "xda"
-    url = "https://forum.xda-developers.com/"
-  [[params.homepage.social.icons]]
-    website = "tiktok"
-    url = "https://tiktok.com"
-  [[params.homepage.social.icons]]
-    website = "googlescholar"
-    url = "https://scholar.google.com/"
-  [[params.homepage.social.icons]]
-    website = "mastodon"
-    url = "https://joinmastodon.org"
-  [[params.homepage.social.icons]]
-    website = "youtube"
-    url = "https://youtube.com"
-  [[params.homepage.social.icons]]
     website = "instagram"
     url = "https://instagram.com"
   [[params.homepage.social.icons]]
     website = "facebook"
     url = "https://facebook.com"
   [[params.homepage.social.icons]]
-    website = "behance"
-    url = "https://behance.net"
+    website = "github"
+    url = "https://github.com/"
+
+# [[params.homepage.social.icons]]
+#   website = "twitter"
+#   url = "https://twitter.com/"
+# [[params.homepage.social.icons]]
+#   website = "linkedin"
+#   url = "https://linkedin.com/in/"
+# [[params.homepage.social.icons]]
+#   website = "xing"
+#   url = "https://www.xing.com/profile/"
+# [[params.homepage.social.icons]]
+#   website = "telegram"
+#   url = "https://t.me/"
+# [[params.homepage.social.icons]]
+#   website = "buymeacoffee"
+#   url = "https://www.buymeacoffee.com/"
+# [[params.homepage.social.icons]]
+#   website = "medium"
+#   url = "https://medium.com/"
+# [[params.homepage.social.icons]]
+#   website = "reddit"
+#   url = "https://reddit.com/"
+# [[params.homepage.social.icons]]
+#   website = "dribbble"
+#   url = "https://dribbble.com/"
+# [[params.homepage.social.icons]]
+#   website = "stackoverflow"
+#   url = "https://stackoverflow.com/"
+# [[params.homepage.social.icons]]
+#   website = "xda"
+#   url = "https://forum.xda-developers.com/"
+# [[params.homepage.social.icons]]
+#   website = "tiktok"
+#   url = "https://tiktok.com"
+# [[params.homepage.social.icons]]
+#   website = "googlescholar"
+#   url = "https://scholar.google.com/"
+# [[params.homepage.social.icons]]
+#   website = "mastodon"
+#   url = "https://joinmastodon.org"
+# [[params.homepage.social.icons]]
+#   website = "youtube"
+#   url = "https://youtube.com"
+# [[params.homepage.social.icons]]
+#   website = "behance"
+#   url = "https://behance.net"
 
 [[menu.main]]
-  name = "About"
-  url = "/about"
+  name = "Aaaaa"
+  url = "/aaaaa"
 
 [build]
   writeStats = true
@@ -236,7 +211,20 @@ DefaultContentLanguageInSubdir = true
 # syntax highlight settings
 [markup]
   [markup.highlight]
-    style = "dracula"
+    codeFences = false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
   [markup.goldmark.renderer]
     # Enable to include inline HTML
     unsafe = true
+
+[[module.mounts]]
+  source = 'static'
+  target = 'static'
+
+[[module.mounts]]
+  source = 'static/blog_images'
+  target = 'static/images'
+  
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "topics"
