@@ -1,6 +1,6 @@
 baseurl = "https://neohung.github.io/"
 metaDataFormat = "yaml"
-title = "Neo Blog"
+title = "Test Blog"
 theme = "blist"
 
 DefaultContentLanguage = "ch"
@@ -211,7 +211,21 @@ DefaultContentLanguageInSubdir = true
 # syntax highlight settings
 [markup]
   [markup.highlight]
-    codeFences = false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
+    # codeFences = false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
+    noClasses = false
+	#anchorLineNos = false
+    #codeFences = true
+    #guessSyntax = false
+    #hl_Lines = ''
+    #hl_inline = false
+    #lineAnchors = ''
+    #lineNoStart = 1
+    #lineNos = false
+    #lineNumbersInTable = true
+    #noClasses = true
+    #noHl = false
+    #style = 'monokai'
+    #tabWidth = 4
   [markup.goldmark.renderer]
     # Enable to include inline HTML
     unsafe = true
