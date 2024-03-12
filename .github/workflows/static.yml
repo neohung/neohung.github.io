@@ -36,7 +36,7 @@ jobs:
       - name: Download Dart Sass
         run: curl -LJO https://github.com/sass/dart-sass/releases/download/1.63.6/dart-sass-1.63.6-linux-x64.tar.gz
       - name: Install Dart Sass
-             tar -v -x -C ~/bin -f dart-sass-1.63.6-linux-x64.tar.gz
+        run: tar -v -x -C ~/bin -f dart-sass-1.63.6-linux-x64.tar.gz
       - name: Checkout
         uses: actions/checkout@v4
         with:
