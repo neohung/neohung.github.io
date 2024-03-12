@@ -1,74 +1,110 @@
+{{ define "head" }}
+{{ $options := dict "transpiler" "dartsass" "targetPath" "css/single.css" }}
+{{ with resources.Get "sass/layouts/single.scss" | toCSS $options | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+{{ with resources.Get "sass/layouts/sharingbuttons.scss" | toCSS $options | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+{{ end }}
+
 {{ define "main" }}
-  {{ $lastmodstr := (partial "date.html" (dict "date" .Lastmod "language" $.Page.Language "format" "long")) }}
-  {{ $datestr := (partial "date.html" (dict "date" .Date "language" $.Page.Language "format" "long")) }}
-
-  {{ if (and .Params.thumbnail (not (or .Site.Params.hidePageThumbnail .Params.hidePageThumbnail)) ) }}
-  <div class="relative max-w-5xl mx-auto px-4">
-    <img src="{{ .Params.thumbnail }}" class="rounded-lg shadow-sm w-full object-contain" />
-    {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
-    <div class="absolute top-4 right-8 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
-      {{ $datestr }}
-    </div>
-    {{ end }}
-  </div>
-  {{ end }}
-
-  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
-
-    <h1 class="text-2xl font-bold mb-2">{{ .Title }}</h1>
-    {{ if not (or (or .Site.Params.hideMeta .Params.hideMeta) false) }}
-    <h5 class="text-sm flex items-center flex-wrap">
-      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <rect x="4" y="5" width="16" height="16" rx="2" />
-        <line x1="16" y1="3" x2="16" y2="7" />
-        <line x1="8" y1="3" x2="8" y2="7" />
-        <line x1="4" y1="11" x2="20" y2="11" />
-        <rect x="8" y="15" width="2" height="2" />
-      </svg>
-      {{ $datestr | i18n "postedOnDate" }}
-      {{ if ne $datestr $lastmodstr }}
-        &nbsp{{ $lastmodstr | i18n "lastModified" }}</h5><h5 class="text-sm flex items-center flex-wrap">
-      {{ else }}
-        &nbsp;&bull;&nbsp;
-      {{ end }}
-      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <circle cx="12" cy="12" r="9" />
-        <polyline points="12 7 12 12 15 15" />
-      </svg>
-      {{ i18n "readingTime"}}{{ .ReadingTime }}&nbsp;{{ i18n "readTime" }}
-      &nbsp;&bull;
-      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-        <line x1="3" y1="6" x2="3" y2="19" />
-        <line x1="12" y1="6" x2="12" y2="19" />
-        <line x1="21" y1="6" x2="21" y2="19" />
-      </svg>
-      {{ .WordCount }}&nbsp;{{ i18n "words" }}
-      {{ if not (or (or .Site.Params.hideOtherLanguages .Params.hideOtherLanguages) false) }}
-        {{ if .IsTranslated -}}
-          {{- $sortedTranslations := sort .Translations "Site.Language.Weight" -}}
-          {{- $links := apply $sortedTranslations "partial" "translation_link.html" "." -}}
-          {{- $cleanLinks := apply $links "chomp" "." -}}
-          {{- $linksOutput := delimit $cleanLinks (i18n "translationsSeparator") -}}
-          &nbsp;&bull;&nbsp;{{ i18n "translationsLabel" }}&nbsp;{{ $linksOutput | safeHTML }}
-        {{- end }}
-      {{ end }}
-    </h5>
-    {{- partial "single_tags_meta.html" . -}}
-    {{ end }}
-
-    {{ if (or .Site.Params.toc .Params.toc) }}
-    {{- partial "toc.html" . -}}
-    {{ end }}
-
+<main id="main" class="post">
+  {{ if ne .Section "posts"}}
+  <article class="content {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">
     {{ .Content }}
   </article>
 
-  {{- partial "comments.html" . -}}
+  {{ else }}
+  <div class="post-heading">
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="publish-metadata">
+      {{/*  publish date  */}}
+      <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      {{ .PublishDate.Format .Site.Params.dateFormat }}
+      {{/*  word count  */}}
+      {{ if .Site.Params.showWordCount }}
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          {{ .WordCount }} words
+        </span>
+      {{ end }}
+      {{/*  reading time  */}}
+      {{ if gt .ReadingTime 1 }}
+        {{ .Scratch.Set "timeUnit" "mins" }}
+      {{ else }}
+        {{ .Scratch.Set "timeUnit" "min" }}
+      {{ end }}
+      {{ if .Site.Params.showReadingTime }}
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          ~{{.ReadingTime}} {{ .Scratch.Get "timeUnit" }}
+        </span>
+      {{ end }}
+    </div>
+  </div>
 
-  {{- partial "social.html" . -}}
+  {{ if ne .Params.tags nil }}
+  <div>
+    {{ range .Params.tags }}
+    <a class="link tag" href='{{ "tags" | absURL }}/{{ . | urlize }}'>#{{ . }}</a>
+    {{ end }}
+    <br></br>
+  </div>
+  {{ end }}
+  {{ if cond (ne .Params.toc nil) .Params.toc .Site.Params.toc }}
+  {{ if ne .TableOfContents "<nav id=\"TableOfContents\"></nav>" }}
+  <details>
+    <summary>
+      <b>Table of Contents</b>
+    </summary>
+    <div class="toc {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">{{ .TableOfContents }}</div>
+  </details>
+  {{ end }}
+  {{ end }}
+  <article class="content {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">
+    {{ if .Site.Params.emphasisWithDots }}
+    {{ .Content | replaceRE "<strong>(\\p{Han}+?)</strong>" "<strong class=chinese>$1</strong>" | safeHTML }}
+    {{ else }}
+    {{ .Content }}
+    {{ end }}
+  </article>
+
+  <button onclick="topFunction()" id="back-to-top" title="Go to top">Back to Top</button>
+
+  {{ partial "sharingbuttons.html" . }}
+  <div class="paginator">
+    {{ if .PrevInSection }}
+    <a class="link" href="{{ .PrevInSection.Permalink }}" title="{{ .PrevInSection.Title }}">← prev</a>
+    {{ else }}
+    <a></a>
+    {{ end }}
+    {{ if .NextInSection }}
+    <a class="link" href="{{ .NextInSection.Permalink }}" title="{{ .NextInSection.Title }}">next →</a>
+    {{ else }}
+    <a></a>
+    {{ end }}
+  </div>
+  <div class="comment">
+    <!-- disqus -->
+    {{ template "_internal/disqus.html" . }}
+    <!-- generic engine -->
+    {{ .Site.Params.commentEngine.code | safeHTML }}
+  </div>
+  {{ end }}
+  {{ if .Page.Store.Get "hasMermaid" }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+{{ end }}
+</main>
 {{ end }}
