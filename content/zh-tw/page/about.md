@@ -3,7 +3,7 @@ title: "About Me"
 date: 2023-03-06
 description: Generic description
 categories: []
-tags: ["about-us", "about-hugo", "contact"]
+tags: []
 toc: true
 math: false
 draft: false
