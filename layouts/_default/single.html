@@ -10,11 +10,10 @@
 
 {{ define "main" }}
 <main id="main" class="post">
-  {{ if ne .Section "posts"}}
+  {{ if ne .Section "blog"}}
   <article class="content {{ if .Site.Params.numberedSubtitles }}numbered-subtitles{{ end }}">
     {{ .Content }}
   </article>
-
   {{ else }}
   <div class="post-heading">
     <h1 class="post-title">{{ .Title }}</h1>

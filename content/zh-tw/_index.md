@@ -11,7 +11,6 @@ Welcome to Neo’s blog. This is a place for sharing the information and technol
 ---
 
 ## Acknowledgement
-&nbsp;
 #####    如果本網站文章對您有幫助，歡迎請我喝杯咖啡。
 
 
