@@ -1,5 +1,5 @@
 baseurl = "https://neohung.github.io/"
-disqusShortname = "neoh"
+# disqusShortname = "neoh"
 DefaultContentLanguage = "zh-tw"
 DefaultContentLanguageInSubdir = true
 enableGitInfo = true
