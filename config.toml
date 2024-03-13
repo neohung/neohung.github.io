@@ -1,5 +1,6 @@
 baseurl = "https://neohung.github.io/"
 # disqusShortname = "neoh"
+disqusShortname = ""
 DefaultContentLanguage = "zh-tw"
 DefaultContentLanguageInSubdir = true
 enableGitInfo = true
@@ -95,7 +96,7 @@ categories = "categories"
       [languages.zh-tw.params.sharingbuttons]
         facebook = false
         twitter = false
-        email = true
+        email = false
         linkedin = false
         reddit = false
         whatsapp = false
