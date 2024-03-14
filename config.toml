@@ -102,4 +102,11 @@ categories = "categories"
         whatsapp = false
         hackernews = false
         telegram = false
+[languages.en-us]
+    languageName = "🇺🇸"
+    contentDir = "content/en-us"
+    weight = 2
+    languageCode = "en-US"
+    hasCJKLanguage = false
+    copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)"
 

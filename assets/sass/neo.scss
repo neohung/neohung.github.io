@@ -1,0 +1,28 @@
+@use "sass:math";
+
+$margin: 1rem;
+$max-width: 70vw;
+$padding: math.div(100vw - $max-width, 2);
+
+:root {
+  --neored: #9d0006;
+  --neoblue: #076678;
+  --neoyellow: #fabd2f;
+  --neopurple: #8f3f71;
+  --neobg: #282828;
+  --neofg: #fbf1c7;
+}
+
+.neo-container {
+  //line-height: 60px;
+  background-color: var(--neobg);
+  color: var(--neofg);
+  position: absolute;
+  top: calc(((4px + $margin) / 2) + 12.55px);
+  left: $padding;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  &:hover {
+    color: var(--neoblue);
+  }
+}
