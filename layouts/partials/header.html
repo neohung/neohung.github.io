@@ -11,9 +11,26 @@
     </button>
   </h1>
 
-<div id="neo" class="neo-container">
+<div class="neo-container">
   <i class="fa-solid fa-language fa-2x"></i>
+  <span hidden class="neo-dropdown">
+    {{ range .Site.Languages }}
+      <a id="neoid" href="/{{ .Lang }}/" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+      {{ end }}
+  </span> 
 </div>
+
+  <script>
+    const neoMenuButton = document.querySelector('.neo-container')
+    const neoMenu = document.querySelector('.neo-dropdown')
+    function toggleNeo() {
+      neoMenu.toggleAttribute("hidden")
+      //neoMenu.classList.toggle('flex');
+    }
+    if (neoMenuButton){
+      neoMenuButton.addEventListener('click', toggleNeo)
+    }
+  </script>
 
   <nav>
     {{ range .Site.Menus.main }}

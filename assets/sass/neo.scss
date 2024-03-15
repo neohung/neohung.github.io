@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:color";
 
 $margin: 1rem;
 $max-width: 70vw;
@@ -12,6 +13,7 @@ $mobile-breakpoint: 768px;
   --neopurple: #8f3f71;
   --neobg: #282828;
   --neofg: #fbf1c7;
+  --neofg-dim: #{scale-color(#fbf1c7, $lightness: -40%)};
 }
 
 .neo-container {
@@ -24,12 +26,19 @@ $mobile-breakpoint: 768px;
   cursor: pointer;
   transition: opacity 0.3s;
   &:hover {
-    color: var(--neoblue);
+    color: var(--neofg-dim);
   }
   @media screen {
     @media screen and (max-width: $mobile-breakpoint) {
       left: calc((4px + $margin) / 2);
     }
   }
+}
 
+#neoid {
+  transition: opacity 0.3s;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
 }
