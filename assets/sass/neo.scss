@@ -3,6 +3,7 @@
 $margin: 1rem;
 $max-width: 70vw;
 $padding: math.div(100vw - $max-width, 2);
+$mobile-breakpoint: 768px;
 
 :root {
   --neored: #9d0006;
@@ -25,4 +26,10 @@ $padding: math.div(100vw - $max-width, 2);
   &:hover {
     color: var(--neoblue);
   }
+  @media screen {
+    @media screen and (max-width: $mobile-breakpoint) {
+      left: calc((4px + $margin) / 2);
+    }
+  }
+
 }
