@@ -5,9 +5,9 @@ Most contents of this website are written in Chinese (click top right button to 
 
 ## Features
 
-{{< highlight go-html-template "lineNos=inline, lineNoStart=0" >}}
+
 - Any comment engine (giscus, remark42, hyvor, etc.)
-{{< /highlight >}}
+
 
 ---
 
