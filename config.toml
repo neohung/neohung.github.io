@@ -110,3 +110,5 @@ categories = "categories"
     hasCJKLanguage = false
     copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)"
 
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
