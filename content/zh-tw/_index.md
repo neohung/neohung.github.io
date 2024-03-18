@@ -4,8 +4,8 @@ Most contents of this website are written in Chinese (click top left  button to 
 ---
 
 ## Projects
-- Any comment engine (giscus, remark42, hyvor, etc.)
-- 
+- folding stool ({{< ref "/3dprinter/折疊椅.md" >}} )
+- folding stool2 ({{< ref "/3dprinter/折疊椅2.md" >}} )
 ---
 
 ## Acknowledgement
