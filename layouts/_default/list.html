@@ -9,10 +9,16 @@
 <main id="main" class="archive">
   {{ if .Site.Params.enableDuckDuckGoSearchBox }}
 
-  
+  <script>
+    console.log("neotest1");
+  </script>
   {{ $fuse := resources.Get "js/fuse.min.js" }}
   {{ $search := resources.Get "js/neosearch.js" }}
   {{ $search.Permalink }}
+  <script>
+    console.log("neotest2");
+    console.log({{ $search.Permalink }});
+  </script>
 
   <div id="neosearchbox">
     <input type="text" name="q" placeholder="Search…" aria-label="Search michaelneuper.com on DuckDuckGo"/>
