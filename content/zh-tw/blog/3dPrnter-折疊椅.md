@@ -1,6 +1,6 @@
 ---
-title: "{{ replace .File.ContentBaseName "-" " " | title }}"
-date: {{ .Date }}
+title: "3dPrnter 折疊椅"
+date: 2024-03-18T13:18:49+08:00
 description: Generic description
 categories: []
 tags: []
@@ -10,3 +10,5 @@ draft: true
 ---
 Generic summary
 <!--more-->
+
+#### 測試開draft
