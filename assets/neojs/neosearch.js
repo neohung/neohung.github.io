@@ -90,7 +90,7 @@ function buildResultList(results) {
         // Expected output: "Wed, 14 Jun 2017 07:00:00 GMT"
         searchitems = searchitems + '<time>' + new Date(results[itemnum].item.date).toUTCString().substring(4, 16) + '</time>';
         searchitems = searchitems + '<br>';
-        searchitems = searchitems + '<small><em>"' + results[itemnum].item.contents + '"</em></small>';
+        searchitems = searchitems + '<small><em><blockquote><blockquote>"' + results[itemnum].item.contents + '"</blockquote></blockquote></em></small>';
         searchitems = searchitems + '</li>';
         
         //const contents = '<div class="prose px-4">' + results[itemnum].item.contents + '</div>';
