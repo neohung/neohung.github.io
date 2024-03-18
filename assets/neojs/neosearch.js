@@ -55,7 +55,7 @@ function executeNeoSearch(term) {
     const searchResult = neofuse.search(term);
     // export the result for debug
     console.log(searchResult);
-    if (term === "") {
+    if (term === "" || term.length === 1) {
         // Hide the search result and show ost-group
         postGroupAll.forEach((item) => {
             item.removeAttribute('hidden');
