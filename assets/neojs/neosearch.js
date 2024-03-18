@@ -82,9 +82,13 @@ function executeNeoSearch(term) {
 function buildResultList(results) {
     var searchitems = '';
     for (let itemnum in results.slice(0, 5)) { // only show first 5 results
-        const title = '<div class="text-2xl mb-2 font-bold">' + results[itemnum].item.title + '</div>';
-        const contents = '<div class="prose px-4">' + results[itemnum].item.contents + '</div>';
-        searchitems = searchitems + '<li><a href="'+ results[itemnum].item.permalink+ '">'+title+'</a>'+contents+'</li>';
+        searchitems = searchitems + '<li>';
+        searchitems = searchitems + '<a class="link" href='+results[itemnum].item.permalink+'>'
+           +results[itemnum].item.title+'</a>';
+        searchitems = searchitems + '</li>';
+        //const title = '<div class="text-2xl mb-2 font-bold">' + results[itemnum].item.title + '</div>';
+        //const contents = '<div class="prose px-4">' + results[itemnum].item.contents + '</div>';
+        //searchitems = searchitems + '<li><a href="'+ results[itemnum].item.permalink+ '">'+title+'</a>'+contents+'</li>';
     }
     neoRearchList.innerHTML = searchitems;
     if (results.length > 0) {
