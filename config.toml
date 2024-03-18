@@ -103,7 +103,7 @@ categories = "categories"
         hackernews = false
         telegram = false
 [languages.en-us]
-    languageName = "US"
+    languageName = "🇺🇸"
     contentDir = "content/en-us"
     disabled = false
     languageCode = 'en-us'
