@@ -85,6 +85,8 @@ function buildResultList(results) {
         searchitems = searchitems + '<li>';
         searchitems = searchitems + '<a class="link" href='+results[itemnum].item.permalink+'>'
            +results[itemnum].item.title+'</a>';
+        searchitems = searchitems + '<time>' results[itemnum].item.date + '</time>';
+        //<time>{{ .PublishDate.Format .Site.Params.dateFormat }}</time>
         searchitems = searchitems + '</li>';
         //const title = '<div class="text-2xl mb-2 font-bold">' + results[itemnum].item.title + '</div>';
         //const contents = '<div class="prose px-4">' + results[itemnum].item.contents + '</div>';
