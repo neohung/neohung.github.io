@@ -12,7 +12,7 @@
   
   {{ $fuse := resources.Get "js/fuse.min.js" }}
   {{ $search := resources.Get "js/neosearch.js" }}
-  <script src="{{ $search.Permalink }}"></script>
+  {{ $search.Permalink }}
 
   <div id="neosearchbox">
     <input type="text" name="q" placeholder="Search…" aria-label="Search michaelneuper.com on DuckDuckGo"/>
