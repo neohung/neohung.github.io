@@ -8,6 +8,12 @@
 {{ define "main" }}
 <main id="main" class="archive">
   {{ if .Site.Params.enableDuckDuckGoSearchBox }}
+
+  
+  {{ $fuse := resources.Get "js/fuse.min.js" }}
+  {{ $search := resources.Get "js/neosearch.js" }}
+  <script src="{{ $search.Permalink }}"></script>
+
   <div id="neosearchbox">
     <input type="text" name="q" placeholder="Search…" aria-label="Search michaelneuper.com on DuckDuckGo"/>
     <button>
@@ -17,6 +23,7 @@
     </button>
   </div>
   {{ end }}  
+
   {{ $pages := where .Data.Pages "Type" "in" "blog page" }}
   {{ range $pages.GroupByDate "2006-01" }}
   <div class="post-group">
@@ -31,6 +38,7 @@
     </ul>
   </div>
   {{ end }}
+
   <div class="post-group">
     <h3>...</h3>
   </div>
