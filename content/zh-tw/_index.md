@@ -7,7 +7,7 @@ Most contents of this website are written in Chinese (click top left  button to 
 
 ## Projects
 
-- folding stool ({{< relref path="blog/3dprinter/折疊椅.md" lang="zh-tw" >}})
+- folding stool ({{< relref path="blog/3dprinter/折疊椅2.md" lang="zh-tw" >}})
 - folding stool2 ({{< relref path="blog/3dprinter/折疊椅2.md" lang="zh-tw" >}})
 
 ---
