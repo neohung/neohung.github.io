@@ -12,8 +12,7 @@
   <script>
     console.log("neotest1");
   </script>
-  {{ $fuse := resources.Get "js/fuse.min.js" }}
-  {{ $search := resources.Get "js/neosearch.js" }}
+  {{ $search := resources.Get "neojs/neosearch.js" }}
   {{ $search.Permalink }}
   <script>
     console.log("neotest2");
