@@ -1,3 +1,4 @@
+Welcome to Neo’s blog. This is a place for sharing the information and technologies.
 Most contents of this website are written in Chinese (click top left  button to change the language!).
 
 ---
@@ -10,9 +11,9 @@ Most contents of this website are written in Chinese (click top left  button to 
 
 ## Acknowledgement
 
-### If you like my work or the free stuff on this website and want to say thanks, or encourage me to do more, you can buy me a coffee! The coffee will give me the ‘kick’ to work
+If you like my work or the free stuff on this website and want to say thanks, or encourage me to do more, you can buy me a coffee! The coffee will give me the ‘kick’ to work
 
-### ~Thank you!~
+~Thank you!~
 
 {{< css.inline >}}
 <style>

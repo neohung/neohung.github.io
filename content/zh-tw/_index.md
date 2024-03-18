@@ -1,3 +1,4 @@
+Welcome to Neo’s blog. This is a place for sharing the information and technologies.
 Most contents of this website are written in Chinese (click top left  button to change the language!).
 
 ---
