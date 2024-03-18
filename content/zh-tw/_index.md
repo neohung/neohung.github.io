@@ -1,18 +1,16 @@
-
-# File with heading
-
 Most contents of this website are written in Chinese (click top left  button to change the language!).
 
 ---
 
 ## Projects
 
-{{ with relref path="blog/3dprinter/折疊椅2.md" lang="zh-tw" }}
+{{< with relref path="blog/3dprinter/折疊椅2.md" lang="zh-tw" >}}
 
-- folding stool ({{ .Summary }})
+- folding stool ({{< .Summary >}})
 
 {{ end }}
-- folding stool2 ({{ relref path="blog/3dprinter/折疊椅2.md" lang="zh-tw" }})
+
+- folding stool2 ({{< relref path="blog/3dprinter/折疊椅2.md" lang="zh-tw" >}})
 
 ---
 
