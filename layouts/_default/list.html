@@ -9,11 +9,6 @@
 <main id="main" class="archive">
   {{ if .Site.Params.enableDuckDuckGoSearchBox }}
 
-  {{ $fuse := resources.Get "neojs/fuse.min.js" }}
-  {{ $search := resources.Get "neojs/neosearch.js" }} 
-  {{ $concatjs := slice $fuse $search | resources.Concat "js/neobundle.js" | resources.Minify }}
-  <script src="{{ $concatjs.Permalink }}"></script>
-
   <div id="neosearchbox" class="neosearch-ui" >
     <input type="text" name="q" placeholder="Search…" aria-label="Search michaelneuper.com on DuckDuckGo"/>
     <button>
@@ -22,6 +17,12 @@
       </svg>
     </button>
   </div>
+
+  {{ $fuse := resources.Get "neojs/fuse.min.js" }}
+  {{ $search := resources.Get "neojs/neosearch.js" }} 
+  {{ $concatjs := slice $fuse $search | resources.Concat "js/neobundle.js" | resources.Minify }}
+  <script src="{{ $concatjs.Permalink }}"></script>
+
   {{ end }}  
 
   {{ $pages := where .Data.Pages "Type" "in" "blog page" }}
