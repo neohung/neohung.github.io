@@ -3,7 +3,10 @@ var neofuse;
 var searchfirstRun = true;
 var postGroupAll = document.querySelectorAll('.post-group');
 var searchPostGroup = document.querySelector('.search-post-group');
-var noRearchResults = document.querySelector('.noSearchResults');
+var noSearchResults = document.querySelector('.noSearchResults');
+var neoRearchList = document.querySelector('.neosearch-list');
+var neolistfirst = neoRearchList.firstChild; 
+var neolistlast = neoRearchList.lastChild; 
 
 if (searchfirstRun) {
   loadNeoSearch();
@@ -66,10 +69,25 @@ function executeNeoSearch(term) {
         // Check if has search result
         if (searchResult.length === 0) {
             // show no result
-            noRearchResults.removeAttribute('hidden');
+            noSearchResults.removeAttribute('hidden');
         } else {
             // hide no result and show result
-            noRearchResults.setAttribute('hidden', "");
+            noSearchResults.setAttribute('hidden', "");
+            buildResultList(searchResult);
         } 
+    }
+}
+
+function buildResultList(results) {
+    var searchitems = '';
+    for (let itemnum in results.slice(0, 5)) { // only show first 5 results
+        const title = '<div class="text-2xl mb-2 font-bold">' + results[itemnum].item.title + '</div>';
+        const contents = '<div class="prose px-4">' + results[itemnum].item.contents + '</div>';
+        searchitems = searchitems + '<li><a href="'+ results[itemnum].item.permalink+ '">'+title+'</a>'+contents+'</li>';
+    }
+    neoRearchList.innerHTML = searchitems;
+    if (results.length > 0) {
+        neolistfirst = neoRearchList.firstChild.firstElementChild; // first result container — used for checking against keyboard up/down location
+        neolistlast = neoRearchList.lastChild.firstElementChild; // last result container — used for checking against keyboard up/down location
     }
 }
