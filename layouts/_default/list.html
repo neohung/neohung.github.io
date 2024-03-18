@@ -17,12 +17,6 @@
       </svg>
     </button>
   </div>
-
-  {{ $fuse := resources.Get "neojs/fuse.min.js" }}
-  {{ $search := resources.Get "neojs/neosearch.js" }} 
-  {{ $concatjs := slice $fuse $search | resources.Concat "js/neobundle.js" | resources.Minify }}
-  <script src="{{ $concatjs.Permalink }}"></script>
-
   {{ end }}  
 
   {{ $pages := where .Data.Pages "Type" "in" "blog page" }}
@@ -39,9 +33,15 @@
     </ul>
   </div>
   {{ end }}
-
   <div class="post-group">
     <h3>...</h3>
   </div>
+
+  {{ $fuse := resources.Get "neojs/fuse.min.js" }}
+  {{ $search := resources.Get "neojs/neosearch.js" }} 
+  {{ $concatjs := slice $fuse $search | resources.Concat "js/neobundle.js" | resources.Minify }}
+  <script src="{{ $concatjs.Permalink }}"></script>
+
+
 </main>
 {{ end }}
