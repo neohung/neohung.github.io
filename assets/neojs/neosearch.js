@@ -41,8 +41,7 @@ function loadNeoSearch() {
         neofuse = new Fuse(data, options);
     });
     document.querySelector('.neosearch-ui input').onkeyup = function (e) {
-        window.alert("you key "+this.value);
-        //executeNeoSearch(this.value);
+        executeNeoSearch(this.value);
     } 
 }
 
