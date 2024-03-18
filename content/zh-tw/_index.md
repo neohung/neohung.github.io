@@ -4,8 +4,8 @@ Most contents of this website are written in Chinese (click top left  button to 
 ---
 
 ## Projects
-- folding stool ({{< ref "/3dprinter/折疊椅.md" >}} )
-- folding stool2 ({{< ref "/3dprinter/折疊椅2.md" >}} )
+- folding stool ({{< relref path="3dprinter/折疊椅.md" lang="zh-tw" >}})
+- folding stool2 ({{< relref path="3dprinter/折疊椅2.md" lang="zh-tw" >}})
 ---
 
 ## Acknowledgement
