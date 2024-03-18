@@ -18,7 +18,9 @@
     </button>
   </div>
   {{ end }}  
-  {{ .Data.Pages.Type }}
+  {{ renge .Data.Pages }}
+    {{ .Type }}
+  {{ edn }}
   {{ $pages := where .Data.Pages "Type" "in" "blog page posts" }}
   {{ range $pages.GroupByDate "2006-01" }}
   <div class="post-group">
