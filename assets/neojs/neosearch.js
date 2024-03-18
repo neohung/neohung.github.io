@@ -69,6 +69,7 @@ function executeNeoSearch(term) {
         // Check if has search result
         if (searchResult.length === 0) {
             // show no result
+            neoRearchList.innerHTML = '';
             noSearchResults.removeAttribute('hidden');
         } else {
             // hide no result and show result
