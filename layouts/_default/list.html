@@ -12,10 +12,10 @@
   {{ $fuse := resources.Get "neojs/fuse.min.js" }}
   {{ $search := resources.Get "neojs/neosearch.js" }} 
   {{ $concatjs := slice $fuse $search }}
-  <script src="{{ $concatjs.Permalink }}"></script>
   <script>
     console.log({{ $concatjs.Permalink }});
   </script>
+  <script src="{{ $concatjs.Permalink }}"></script>
 
   <div id="neosearchbox">
     <input type="text" name="q" placeholder="Search…" aria-label="Search michaelneuper.com on DuckDuckGo"/>
