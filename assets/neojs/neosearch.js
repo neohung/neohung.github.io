@@ -1,7 +1,7 @@
 
 var neofuse;
 var searchfirstRun = true;
-var postGroup = document.querySelector('.post-group');
+var postGroupAll = document.querySelectorAll('.post-group');
 //var searchPostGroup = document.querySelector('.search-post-group');
 
 if (searchfirstRun) {
@@ -51,8 +51,12 @@ function executeNeoSearch(term) {
     const searchResult = neofuse.search(term);
     console.log(searchResult);
     if (term === "") {
-        postGroup.removeAttribute('hidden');
+        postGroupAll.forEach((item) => {
+            item.removeAttribute('hidden');
+        });
     }else{
-        postGroup.setAttribute('hidden', "");
+        postGroupAll.forEach((item) => {
+            item.setAttribute('hidden', "");
+        });
     }
 }
