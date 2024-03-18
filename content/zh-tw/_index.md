@@ -1,16 +1,20 @@
-Welcome to Neo’s blog. This is a place for sharing the information and technologies.   
+
+# File with heading
+
 Most contents of this website are written in Chinese (click top left  button to change the language!).
 
 ---
 
 ## Projects
+
 - folding stool ({{< relref path="blog/3dprinter/折疊椅.md" lang="zh-tw" >}})
 - folding stool2 ({{< relref path="blog/3dprinter/折疊椅2.md" lang="zh-tw" >}})
+
 ---
 
 ## Acknowledgement
-#####    如果本網站文章對您有幫助，歡迎請我喝杯咖啡。
 
+### 如果本網站文章對您有幫助，歡迎請我喝杯咖啡
 
 {{< css.inline >}}
 <style>
