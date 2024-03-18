@@ -43,6 +43,10 @@ function loadNeoSearch() {
     document.querySelector('.neosearch-ui input').onkeyup = function (e) {
         window.alert("you key "+this.value);
         //executeNeoSearch(this.value);
-    }
-  
+    } 
+}
+
+function executeNeoSearch(term) {
+    const searchResult = neofuse.search(term);
+    console.log(searchResult);
 }
