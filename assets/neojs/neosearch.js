@@ -82,13 +82,13 @@ function executeNeoSearch(term) {
 
 function buildResultList(results) {
     var searchitems = '';
-    for (let itemnum in results.slice(0, 5)) { // only show first 5 results
+    for (let itemnum in results.slice(0, 10)) { // only show first 5 results
         searchitems = searchitems + '<li>';
         searchitems = searchitems + '<a class="link" href='+results[itemnum].item.permalink+'>'
            +results[itemnum].item.title+'</a>';
         //new Date(results[itemnum].item.date).toUTCString().substring(0, 16) 
-
-        searchitems = searchitems + '<time>' + new Date(results[itemnum].item.date).toUTCString().substring(0, 16) + '</time>';
+        // Expected output: "Wed, 14 Jun 2017 07:00:00 GMT"
+        searchitems = searchitems + '<time>' + new Date(results[itemnum].item.date).toUTCString().substring(4, 16) + '</time>';
         searchitems = searchitems + '</li>';
         //const contents = '<div class="prose px-4">' + results[itemnum].item.contents + '</div>';
     }
