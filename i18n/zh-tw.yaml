@@ -1,3 +1,6 @@
+- id: searchResult
+  translation: "搜索結果:"
+
 # Content
 - id: postedOnDate
   translation: "張貼於 {{ . }}"
