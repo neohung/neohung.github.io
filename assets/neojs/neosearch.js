@@ -2,7 +2,8 @@
 var neofuse;
 var searchfirstRun = true;
 var postGroupAll = document.querySelectorAll('.post-group');
-//var searchPostGroup = document.querySelector('.search-post-group');
+var searchPostGroup = document.querySelector('.search-post-group');
+var noRearchResults = document.querySelector('.noSearchResults');
 
 if (searchfirstRun) {
   loadNeoSearch();
@@ -51,12 +52,24 @@ function executeNeoSearch(term) {
     const searchResult = neofuse.search(term);
     console.log(searchResult);
     if (term === "") {
+        // Hide the search result and show ost-group
         postGroupAll.forEach((item) => {
             item.removeAttribute('hidden');
         });
+        searchPostGroup.setAttribute('hidden', "");
     }else{
+        // Hide the post-group and show the search resutlt
         postGroupAll.forEach((item) => {
             item.setAttribute('hidden', "");
         });
+        searchPostGroup.removeAttribute('hidden');
+        // Check if has search result
+        if (searchResult.length === 0) {
+            // show no result
+            noRearchResults.removeAttribute('hidden');
+        } else {
+            // hide no result and show result
+            noRearchResults.setAttribute('hidden', "");
+        } 
     }
 }

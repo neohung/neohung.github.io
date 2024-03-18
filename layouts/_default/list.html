@@ -37,6 +37,15 @@
     <h3>...</h3>
   </div>
 
+
+  <div hidden class="search-post-group">
+    <div hidden class="noSearchResults text-center my-8">
+      <div class="text-xl font-semibold mb-2">No results found</div>
+      <p class="font-light text-sm">Try adjusting your search query</p>
+    </div>   
+  </div>
+
+ 
   {{ $fuse := resources.Get "neojs/fuse.min.js" }}
   {{ $search := resources.Get "neojs/neosearch.js" }} 
   {{ $concatjs := slice $fuse $search | resources.Concat "js/neobundle.js" | resources.Minify }}
