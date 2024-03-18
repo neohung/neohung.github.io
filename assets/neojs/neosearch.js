@@ -22,14 +22,27 @@ function fetchJSONFile(path, callback) {
 }
 
 function loadNeoSearch() {
-    // in head
-    const lang = document.querySelector(' > meta[name="lang"]')?.getAttribute?.('content')
-    // or in html
-    //const lang = document.documentElement.lang
+    const lang = document.documentElement.lang
     // like "/zh-tw/index.json", if $lang exist use /xxx/index.json else /index.json 
-    console.log("lang head"); 
-    console.log(lang); 
-    const lang2 = document.documentElement.lang
-    console.log("lang html"); 
-    console.log(lang2); 
+    fetchJSONFile(`${lang ? "/" + lang : ""}/index.json`, function (data) {
+        //console.log(data)
+        var options = { // fuse.js options; check fuse.js website for details
+          shouldSort: true,
+          location: 0,
+          distance: 100,
+          threshold: 0.4,
+          minMatchCharLength: 2,
+          keys: [
+            'title',
+            'permalink',
+            'contents'
+         ]
+        };
+        neofuse = new Fuse(data, options);
+    });
+    document.querySelector('.neosearch-ui input').onkeyup = function (e) {
+        window.alert("you key "+this.value);
+        //executeNeoSearch(this.value);
+    }
+  
 }

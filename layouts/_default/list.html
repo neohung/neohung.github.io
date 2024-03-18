@@ -14,7 +14,7 @@
   {{ $concatjs := slice $fuse $search | resources.Concat "js/neobundle.js" | resources.Minify }}
   <script src="{{ $concatjs.Permalink }}"></script>
 
-  <div id="neosearchbox">
+  <div id="neosearchbox" class="neosearch-ui" >
     <input type="text" name="q" placeholder="Search…" aria-label="Search michaelneuper.com on DuckDuckGo"/>
     <button>
       <svg aria-hidden="true" height="1rem" viewBox="0 0 16 16" version="1.1" width="1rem" data-view-component="true" class="octicon octicon-search Button-visual">
